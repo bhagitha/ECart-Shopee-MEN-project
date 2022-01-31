@@ -1,0 +1,54 @@
+<!-- include header -->
+<%-include('include/_header')%>
+    <!-- include header -->
+    <div class="row">
+        <div class="col-sm-6">
+            <img width="600px" src="\images\<%=demo.img%>" alt="">
+        </div>
+        <div class="col-sm-5">
+            <br><br><br><br>
+            <h3>
+                <%=demo.name%>
+            </h3>
+            <h4>$<%=demo.price%>
+            </h4>
+            <form action="/products/find/<%=demo._id%>" method="post" style="display: inline;">
+                <div class="form-group">
+                    <h4 >Quantity:</h4> 
+                    <%var price=demo.price%>
+                <input onchange=" qty =getData(this.value)" class="form-control" type="text" name="quantity" id="qty" >
+                <%function getData(val){%>
+                   
+                   <%console.log("quantity : "+val + " Price:"+demo.price)%>
+                <% return val%>
+                 <%}%>
+                 <%var qty = getData()%>
+                  <h1> val :  <%=qty%></h1> 
+
+                </div>
+                <div class="form-group">
+                <h3>Total amount: <%= demo.price*qty%></h3>
+                <h2 id="total"></h2>
+</div>
+
+                <button type="submit" class="btn btn-primary" >add to cart</button></form>
+            <form action="/products/edit/<%=demo._id%>" style="display: inline;"><button  class="btn btn-success">edit</button></form>
+
+
+        </div>
+    </div>
+<script>
+
+function getData(val){
+   qty=val
+   console.log(qty)
+    return val
+}
+    
+   qty=getData()
+   console.log('dta : '+qty)
+
+</script>
+    </body>
+
+    </html>

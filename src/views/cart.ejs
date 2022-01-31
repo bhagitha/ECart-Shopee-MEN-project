@@ -1,0 +1,48 @@
+<%-include('include/_header')%>
+<%var total=0%>
+    <%for(var i=0;i< demo.length;i++){%>
+        
+        <div class="card mb-3" style="max-width: 540px;">
+            
+            <div class="row g-0">
+              
+                <div class="col-md-4">
+                    <img src="\images\<%=demo[i].prdImg%>" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <%=demo[i].prdname%>
+                        </h4>
+                        <h5>unit price:
+                            <%=demo[i].prdPrice%>
+                        </h5>
+                        <span><h5>
+                        quantity:  <%=demo[i].qt%>
+                    </h5>
+                    </span> total amont:
+                        <%=demo[i].amount%>
+                    </div>
+
+                   
+                </div>
+                <button class="btn btn-danger">Delete</button>
+            </div>
+           
+                <% total=total+parseInt(demo[i].amount)%>
+           
+        </div>
+        <%}%>
+        <hr style="width: 25%; float: left;" />
+        <div class="card border-0" style="max-width: 540px;">
+             <div class=" col-md-8 card-body float-right">
+             <span class="h4">Grand Total:  </span>  
+            <span class="display-4"> <%=total%></span>
+            </div>
+        </div>
+
+       
+        
+            </body>
+
+            </html>
